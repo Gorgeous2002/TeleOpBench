@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="TeleOpBench: A Simulator-Centric Benchmark for Dual-Arm Dexterous Teleoperation">
+  <meta name="keywords" content="Humanoid, Loco-Manipulation, Teleoperation, Robot Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    TeleOpBench: A Simulator-Centric Benchmark for Dual-Arm Dexterous Teleoperation
+  </title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ38WT2YPD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QZ38WT2YPD');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./statics/css/bulma.min.css">
+  <link rel="stylesheet" href="./statics/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./statics/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./statics/css/index.css">
+
+  <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./statics/js/bulma-carousel.min.js"></script>
+  <script src="./statics/js/bulma-slider.min.js"></script>
+  <script src="./statics/js/index.js"></script>
+</head>
+
+<section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
+  <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%;min-height: 56.25vw;">
+    <video playsinline autoplay muted loop>
+      <source src=" ./statics/videos/simple.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video is-hidden-tablet is-inline-block-mobile"
+    style="height: 154.28571428vw; width: 100%; min-width:64.81481481vh;min-height:100%;">
+    <video playsinline autoplay muted loop>
+      <source src=" ./statics/videos/simple.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="overlay"></div>
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head is-hidden-mobile">
+    <header class="navbar">
+      <div class="container is-size-5">
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item pl-4 pr-4" href="./statics/TeleOpBench.pdf">
+              <span class="icon" style="margin-right:5px;">
+                <img src="./statics/images/pdf.svg" alt="PDF" />
+              </span>
+              <span>Paper</span>
+            </a>
+            <a class="navbar-item  pl-4 pr-4" href="https://arxiv.org/abs/2502.13013">
+              <span class="icon" style="margin-right:5px;">
+                <img src="./statics/images/arxiv.svg" alt="ArXiv" />
+              </span>
+              <span>arXiv</span> </a>
+            <a href="https://youtu.be/FxkGmjyMc5g" class="navbar-item  pl-4 pr-4">
+              <span class="icon" style="margin-right:5px;">
+                <img src="./statics/images/youtube.svg" alt="Youtube" />
+              </span>
+              <span>Video</span> </a>
+            <span class="navbar-item  pl-4 pr-4">
+              <a href="https://github.com/OpenRobotLab/TeleOpBench" class="button is-inverted is-large">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 12rem;">
+        TeleOpBench
+      </h1>
+      <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem;">
+        A Simulator-Centric Benchmark for Dual-Arm Dexterous Teleoperation
+      </h1>
+      <!-- <h1 class="is-2 is-italic is-size-4-mobile" style="font-size: 2rem; opacity: 80%;">
+        Conference on Robot Learning 2024
+      </h1>
+      <h1 class="is-2 is-italic is-size-4-mobile" style="font-size: 1.5rem; opacity: 80%;">
+        <b>Spotlight</b> WCBM Workshop CoRL 2024
+      </h1> -->
+      <!-- <h1 class="is-2 is-italic is-size-4-mobile" style="font-size: 1.5rem; opacity: 80%;">
+        X-Embodiment Workshop CoRL 2024
+      </h1> -->
+      <div class="column has-text-centered is-hidden-tablet">
+        <div class="publication-links">
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="./statics/TeleOpBench.pdf" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <img src="./statics/images/pdf.svg" alt="q j" />
+              </span>
+              <span>Paper</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="https://arxiv.org/abs/2502.13013" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <img src="./statics/images/arxiv.svg" alt="ArXiv" />
+              </span>
+              <span>arXiv</span>
+            </a>
+          </span>
+          <!-- Video Link. -->
+          <span class="link-block">
+            <a href="https://youtu.be/FxkGmjyMc5g" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+             <img src="./statics/images/youtube.svg" alt="Youtube" />
+              </span>
+              <span>Video</span>
+            </a>
+          </span>
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/OpenRobotLab/TeleOpBench"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot is-hidden-mobile">
+    <nav class="tabs is-boxed is-fullwidth is-size-5">
+      <ul>
+        <li><a href="#rl">Reinforcement Learning</a></li>
+        <li><a href="#hardware">Hardware System</a></li>
+        <li><a href="#deploy">Deployment</a></li>
+        <li><a href="#ext">Extensions</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<section class="section is-medium" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths has-text-justified is-hidden-mobile">
+        <h2 class="title is-2 has-text-centered" style="color: var(--title-color, #126BAE); font-size: 3.5rem; font-weight: bold; letter-spacing: 1px; line-height: 1.2;">
+          TeleOpBench:
+        </h2>
+        
+        <h3 class="subtitle is-4 has-text-centered" style="color: var(--subtitle-color, #126BAE); font-size: 2.5rem; font-weight: 600; letter-spacing: 0.5px; line-height: 1.4;">
+          A Simulator-Centric Benchmark for Dual-Arm Dexterous Teleoperation
+        </h3>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <img src="./statics/images/newpipe.jpg" alt="Image description" style="max-width: 100%; height: auto;">
+        </div>
+        <p>
+          <strong>Abstract:</strong> 
+          Teleoperation is a cornerstone of embodied-robot learning, and bimanual dexterous teleoperation in particular provides rich demonstrations that are difficult to obtain with fully autonomous systems.  While recent studies have proposed diverse hardware pipelines—ranging from inertial motion-capture gloves to exoskeletons and vision-based interfaces—there is still no unified benchmark that enables fair, reproducible comparison of these systems. In this paper, we introduce TeleOpBench, a simulator-centric benchmark tailored to bimanual dexterous teleoperation.  TeleOpBench contains 30 high-fidelity task environments that span pick-and-place, tool use, and collaborative manipulation, covering a broad spectrum of kinematic and force-interaction difficulty.  Within this benchmark we implement four representative teleoperation modalities—(i) MoCap, (ii) VR device, (iii) arm-hand exoskeletons, and (iv) monocular vision tracking—and evaluate them with a common protocol and metric suite. To validate that performance in simulation is predictive of real-world behavior, we conduct mirrored experiments on a physical dual-arm platform equipped with two 6-DoF dexterous hands.  Across 10 held-out tasks we observe a strong correlation between simulator and hardware performance, confirming the external validity of TeleOpBench. TeleOpBench establishes a common yardstick for teleoperation research and provides an extensible platform for future algorithmic and hardware innovation.
+        </p>
+      </div>
+
+      <div class="column is-four-fifths is-hidden-tablet has-text-justified-mobile">
+        <h2 class="title is-2 has-text-centered" style="color: var(--title-color, #126BAE); font-size: 3.5rem; font-weight: bold; letter-spacing: 1px; line-height: 1.2;">
+          TeleOpBench:
+        </h2>
+        
+        <h3 class="subtitle is-4 has-text-centered" style="color: var(--subtitle-color, #126BAE); font-size: 2.5rem; font-weight: 600; letter-spacing: 0.5px; line-height: 1.4;">
+          A Simulator-Centric Benchmark for Dual-Arm Dexterous Teleoperation
+        </h3>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <img src="./statics/images/newpipe.jpg" alt="Image description" style="max-width: 100%; height: auto;">
+        </div>
+        <p>
+          <strong>Abstract:</strong> 
+          Teleoperation is a cornerstone of embodied-robot learning, and bimanual dexterous teleoperation in particular provides rich demonstrations that are difficult to obtain with fully autonomous systems.  While recent studies have proposed diverse hardware pipelines—ranging from inertial motion-capture gloves to exoskeletons and vision-based interfaces—there is still no unified benchmark that enables fair, reproducible comparison of these systems. In this paper, we introduce TeleOpBench, a simulator-centric benchmark tailored to bimanual dexterous teleoperation.  TeleOpBench contains 30 high-fidelity task environments that span pick-and-place, tool use, and collaborative manipulation, covering a broad spectrum of kinematic and force-interaction difficulty.  Within this benchmark we implement four representative teleoperation modalities—(i) MoCap, (ii) VR device, (iii) arm-hand exoskeletons, and (iv) monocular vision tracking—and evaluate them with a common protocol and metric suite. To validate that performance in simulation is predictive of real-world behavior, we conduct mirrored experiments on a physical dual-arm platform equipped with two 6-DoF dexterous hands.  Across 10 held-out tasks we observe a strong correlation between simulator and hardware performance, confirming the external validity of TeleOpBench. TeleOpBench establishes a common yardstick for teleoperation research and provides an extensible platform for future algorithmic and hardware innovation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen" style="margin-top: -5em;">
+    <hr width="100%" size="2">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/FxkGmjyMc5g?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div style="text-align: center; color: #ff0000;">
+<p>All videos below are at normal speed. 😊</p>
+</div>
+<section class="section is-small" id="rl">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Reinforcement Learning</h2>
+
+
+        <div style="text-align: center;">
+          <img alt="rl" src="./statics/images/rl.png" width="80%"/>
+        </div>
+        <div class="content">
+          <p>
+            We introduce three core techniques to our RL-based training framework to significantly expand the operational workspce of humanoid robots whereas ensuring robustness of locomotion:
+          </p>
+          
+          <ol>
+            <li style="color: #126BAE;">
+              <strong>Upper-body pose curriculum:</strong> Enable balance under continuous changing upper-body poses.
+            </li>
+            <li style="color: #126BAE;">
+              <strong>Height tracking reward:</strong> Enable the robot to squat to any required heights robustly and quickly.
+            </li>
+            <li style="color: #126BAE;">
+              <strong>Symmetry utilization:</strong> Make the robot act more symmetrically & improve data efficiency.
+            </li>
+          </ol>
+          
+          
+          <p>
+            Our framework is totally <span style="color: #e9890c;">MoCap-free</span>, resulting in a more efficient pipeline.
+          </p>
+          
+          <p>
+            Our framework can be used to train different kinds of robots such as <span style="color: #126BAE;">Unitree G1</span>and <span style="color: #126BAE;">Fourier GR-1</span>.
+          </p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 100%;">
+                  <source src="./statics/videos/g1.mp4" type="video/mp4">
+                  Unitree G1 trained in Isaac Gym.
+              </video>
+              <p>Unitree G1 trained in Isaac Gym.</p>
+          </div>
+          <div style="flex: 1; text-align: center;">
+            <video autoplay loop muted style="width: 100%;">
+                <source src="./statics/videos/gr1.mp4" type="video/mp4">
+                Fourier GR-1 trained in Isaac Gym.
+            </video>
+            <p>Fourier GR-1 trained in Isaac Gym.</p>
+        </div>
+        </div>
+        <br>
+        <p>After training with our framework on an Nvidia RTX 4090 for only about <span style="color: #e9890c;">3 hours</span> , we can get policies that can be deployed directly in the real world to drive robots walk and squat robustly.</p>
+        <div style="text-align: center;">
+          <img alt="rl" src="./statics/images/aba.png" width="100%"/>
+        </div>
+
+        <p>We conduct serval ablation experiments to verify the effectiveness of our framework, and we find:</p>
+        <ol>
+          <li>
+            Our upper-body pose curriculum can help robots better learn to balance under dynamic upper-body movements gradually than methods without curriculum or with other curriculum style.
+          </li>
+          <li>
+            The introduction of novel height tracking reward can accelerate the training for robot squatting.
+          </li>
+          <li>
+            The symmetry utilization can both significantly accelerate the training process by over 10 times and guarantee the symmetry of the trained policy.
+          </li>
+        </ol>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-small" id="hardware">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Hardware System</h2>
+        <div class="content">
+          <p>Our hardware system features isomorphic exoskeleton arms, a pair of motion-sensing gloves, and a pedal. The pedal design for locomotion command acquisition liberates the operator's upper body, enabling simultaneous acquisition of upper-body poses. Since the exoskeleton arms are isomorphic to the controlled robot and each glove has 15 degrees of freedom (DoF), which is more than most existing dexterous hands, we can directly set upper-body joint positions from the exoskeleton readings, dispensing with IK and achieving faster and more accurate teleoperation.</p>
+          
+          <div class="video-container" style="display: flex;">
+              <div style="flex: 1; text-align: center;">
+                <video autoplay loop muted style="width: 100%; height: 100%;">
+                    <source src="./statics/videos/exo.mp4" type="video/mp4">
+                    Arms and Hands.
+                </video>
+                <p>Arms and Hands.</p>
+              </div>
+              <div style="flex: 1; text-align: center;">
+                  <video autoplay loop muted style="width: 100%; height: 100%;">
+                      <source src="./statics/videos/pedal.mp4" type="video/mp4">
+                      Pedal.
+                  </video>
+                  <p>Pedal.</p>
+              </div>
+          </div> <!-- 闭合 video-container -->
+        </div>
+        <br>
+        <div class="content">
+          <p>We design hardware systems for both <span style="color: #126BAE;">Unitree G1</span> and <span style="color: #126BAE;">Fourier GR-1</span>.  Notably, our gloves can be detached from the arms, allowing them to be reused in systems isomorphic to different robots. </p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <img alt="rl" src="./statics/images/g1real.png" width="50%"/>
+              <p><span style="color: #126BAE;">1. </span>Isomorphic Exoskeleton for Unitree G1.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <img alt="rl" src="./statics/images/gr1real.png" width="50%"/>
+              <p><span style="color: #126BAE;">2. </span>Isomorphic Exoskeleton for Fourier GR-1.</p>
+            </div>
+          </div> <!-- 闭合 video-container -->
+        </div>
+        <div class="content">
+          <p>Using our hardware system, <span style="color: #e9890c;">one single operator</span> can choose to control:</p>
+          
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 100%; height: 100%;">
+                  <source src="./statics/videos/hand.mp4" type="video/mp4">
+                  Diverse dexterous hands.
+              </video>
+              <p><span style="color: #126BAE;">1. </span>Diverse dexterous hands.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 100%; height: 100%;">
+                  <source src="./statics/videos/arm.mp4" type="video/mp4">
+                  Upper-body of Humanoids.
+              </video>
+              <p><span style="color: #126BAE;">2. </span>Upper body of Humanoids.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 100%; height: 100%;">
+                  <source src="./statics/videos/whole.mp4" type="video/mp4">
+                  Whole body of humanoids.
+              </video>
+              <p><span style="color: #126BAE;">3. </span>Whole body of humanoids.</p>
+            </div>
+          </div> <!-- 闭合 video-container -->
+          </div>
+          <br>
+          <p>The total cost of the hardware system is only <span style="color: #e9890c;">$0.5k</span>, significantly lower than that of MoCap devices. We list the detailed costs for all parts <a href="https://docs.google.com/document/d/1o9QVqU8puq1ob-knYmQQiqrZheUKpCePHz2J3zQot20">here</a>.</p>  
+        </div>
+      </div>
+    </div> 
+  </div> 
+</section>
+
+<section class="section is-small" id="deploy">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Deployment</h2>
+        <div class="content">
+          <p>
+            We deploy the trained policy on the Unitree G1 in the real world and teleoperate it to perform various loco-manipulation tasks using our isomorphic exoskeleton hardware system.
+          </p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/long.mp4" type="video/mp4">
+                  Walking under changing upper-body poses.
+              </video>
+              <p><span style="color: #126BAE;">1. </span>Walking under changing upper-body poses.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/squat.mp4" type="video/mp4">
+                  Squatting under changing upper-body poses.
+              </video>
+              <p><span style="color: #126BAE;">2. </span>Squatting under changing upper-body poses.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/flower.mp4" type="video/mp4">
+                  Squat to hold flower and transfer.
+              </video>
+              <p><span style="color: #126BAE;">3. </span>Squat to hold flower and transfer.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/bottle.mp4" type="video/mp4">
+                  Squat to grasp a bottle.
+              </video>
+              <p><span style="color: #126BAE;">4. </span>Squat to grasp a bottle.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/pick&place.mp4" type="video/mp4">
+                  Hand over and pick & place.
+              </video>
+              <p><span style="color: #126BAE;">5. </span>Hand over and pick & place.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/oven.mp4" type="video/mp4">
+                  Step back and open oven.
+              </video>
+              <p><span style="color: #126BAE;">6. </span>Step back and open oven.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/shelfsquat.mp4" type="video/mp4">
+                  Transfer a grasp from lower to higher.
+              </video>
+              <p><span style="color: #126BAE;">7. </span>Transfer a grasp from lower to higher.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/shelftrans.mp4" type="video/mp4">
+                  Transfer a box from one shelf to another.
+              </video>
+              <p><span style="color: #126BAE;">8. </span>Transfer a box from one shelf to another.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/push.mp4" type="video/mp4">
+                  Push the man on a chair.
+              </video>
+              <p><span style="color: #126BAE;">9. </span>Push the man on a chair.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/colla.mp4" type="video/mp4">
+                  Hand over between two robots.
+              </video>
+              <p><span style="color: #126BAE;">10. </span>Hand over between two robots.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+        </div>
+
+        <div class="content">
+          <p>
+            We further conduct some experiments to show the robustness of our policy.
+          </p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/bang.mp4" type="video/mp4">
+                  Strong hitting.
+              </video>
+              <p><span style="color: #126BAE;">1. </span>Strong hitting.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/ball.mp4" type="video/mp4">
+                  Hit with a heavy ball.
+              </video>
+              <p><span style="color: #126BAE;">2. </span>Hit with a heavy ball.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+        </div>
+        <div class="content">
+          
+          <p>To demonstrate the effectiveness of the isomorphic exoskeleton, we compare the task completion times across four different tasks between our hardware system and <a href="https://github.com/OpenTeleVision/TeleVision">OpenTelevision</a>.</p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/pickpla.mp4" type="video/mp4">
+                  Pick & Place.
+              </video>
+              <p><span style="color: #126BAE;">1. </span>Pick & Place.</p>
+            </div>
+            
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/scan.mp4" type="video/mp4">
+                  Scan Barcode.
+              </video>
+              <p><span style="color: #126BAE;">2. </span>Scan Barcode.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/handover.mp4" type="video/mp4">
+                  Hand Over.
+              </video>
+              <p><span style="color: #126BAE;">3. </span>Hand Over.</p>
+            </div>
+            
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/openn.mp4" type="video/mp4">
+                  Open Oven.
+              </video>
+              <p><span style="color: #126BAE;">4. </span>Open Oven.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div style="text-align: center;">
+            <img alt="vsopentv" src="./statics/images/opentv.png" width="80%"/>
+          </div>
+          <p>The completion times for these tasks are computed based on data from three different operators, with each operator performing the tasks three times. Our hardware system can accelerate the teleoperation by approximately <span style="color: #e9890c;">2 times</span>, particularly in tasks that require radial movement.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-small" id="ext">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Extensions</h2>
+        <div class="content">
+          <p>
+            <h3 class="title is-3 has-text-centered is-size-4-mobile">1. Simulation</h3>
+          </p>
+          <p>We transfer the trained policies for Unitree G1 and Fourier GR-1 from Isaac Gym to scenes developed by <a href="https://github.com/OpenRobotLab/GRUtopia">GRUtopia</a>, thus the robots can perform diverse loco-manipulation tasks more cost-effectively and in a wider range of scenarios than would be feasible in the real world. </p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 90%; height: 100%;">
+                  <source src="./statics/videos/g1sim.mp4" type="video/mp4">
+                  Unitree G1 in GRUtopia.
+              </video>
+              <p><span style="color: #126BAE;">1. </span>Unitree G1 in GRUtopia.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 90%; height: 100%;">
+                  <source src="./statics/videos/gr1sim.mp4" type="video/mp4">
+                  Fourier GR-1 in GRUtopia.
+              </video>
+              <p><span style="color: #126BAE;">2. </span>Fourier GR-1 in GRUtopia.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 95%; height: 100%;">
+                  <source src="./statics/videos/g1tasksim.mp4" type="video/mp4">
+                  Loco-Manipulation Task Completion in GRUtopia.
+              </video>
+              <p><span style="color: #126BAE;">3. </span>Loco-Manipulation Task Completion in GRUtopia.</p>
+            </div>
+          </div>
+          <br>
+          <br>
+          
+        </div>
+
+        <div class="content">
+          <p>
+            <h3 class="title is-3 has-text-centered is-size-4-mobile">2. Imitation Learning</h3>
+          </p>
+          <p>To validate the effectiveness of the demonstratons collected by HOMIE for IL algorithms, we design two distinct tasks, collect data by teleoperating, train with IL algorithm, and deploy in the real world. We achieve over <span style="color: #e9890c;" >70%</span> success rate, showing the feasibility of training IL with collected data.</p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 90%; height: 100%;">
+                  <source src="./statics/videos/imi.mp4" type="video/mp4">
+                  Squat Pick.
+              </video>
+              <p><span style="color: #126BAE;">1. </span>Squat Pick.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted style="width: 90%; height: 100%;">
+                  <source src="./statics/videos/imi2.mp4" type="video/mp4">
+                  Pick & Place.
+              </video>
+              <p><span style="color: #126BAE;">2. </span>Pick & Place.</p>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section is-small">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-size-4-mobile">Authors</h2>
+    <div class="container has-text-centered">
+      <div class="publication-authors is-flex justify-content is-justify-content-space-around is-hidden-mobile">
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://www.qingweiben.com/">
+              <img class="is-rounded
+                      " src="./statics/images/qingwei.png" alt="Qingwei Ben">
+            </a>
+          </figure>
+          <a href="https://www.qingweiben.com/">Qingwei Ben</a><sup>*,1,2</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="">
+              <img class="is-rounded
+                      " src="./statics/images/feiyu.png" alt="Feiyu Jia">
+            </a>
+          </figure>
+          <a href="">Feiyu Jia</a><sup>*,1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">
+              <img class="is-rounded
+                      " src="./statics/images/jiazeng.jpeg" alt="Jia Zeng">
+            </a>
+          </figure>
+          <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">Jia Zeng</a><sup>1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://jtdong.com/">
+              <img class="is-rounded
+                      " src="./statics/images/junting.jpg" alt="Junting Dong">
+            </a>
+          </figure>
+          <a href="https://jtdong.com/">Junting Dong</a><sup>1</sup>
+        </div>
+
+
+        <!-- <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://dahua.site/">
+              <img class="is-rounded
+                      " src="./statics/images/dahua.png" alt="Dahua Lin">
+            </a>
+          </figure>
+          <a href="https://dahua.site/">Dahua Lin</a><sup>1,2</sup>
+        </div> -->
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://oceanpang.github.io/">
+              <img class="is-rounded
+                      " src="./statics/images/miao.png" alt="Jiangmiao Pang">
+            </a>
+          </figure>
+          <a href="https://oceanpang.github.io/">Jiangmiao Pang</a><sup>1</sup>
+        </div>
+      </div>
+
+      <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly is-hidden-tablet">
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://www.qingweiben.com/">
+              <img class="is-rounded
+                      " src="./statics/images/qingwei.png" alt="Qingwei Ben">
+            </a>
+          </figure>
+          <a href="https://www.qingweiben.com/">Qingwei Ben</a><sup>*,1,2</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="">
+              <img class="is-rounded
+                      " src="./statics/images/feiyu.png" alt="Feiyu Jia">
+            </a>
+          </figure>
+          <a href="https://trap-1.github.io/">Feiyu Jia</a><sup>*,1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">
+              <img class="is-rounded
+                      " src="./statics/images/jiazeng.jpeg" alt="Jia Zeng">
+            </a>
+          </figure>
+          <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">Jia Zeng</a><sup>1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://jtdong.com/">
+              <img class="is-rounded
+                      " src="./statics/images/junting.jpg" alt="Junting Dong">
+            </a>
+          </figure>
+          <a href="https://jtdong.com/">Junting Dong</a><sup>1</sup>
+        </div>
+
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://dahua.site/">
+              <img class="is-rounded
+                      " src="./statics/images/dahua.png" alt="Dahua Lin">
+            </a>
+          </figure>
+          <a href="https://dahua.site/">Dahua Lin</a><sup>1,2</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://oceanpang.github.io/">
+              <img class="is-rounded
+                      " src="./statics/images/miao.png" alt="Jiangmiao Pang">
+            </a>
+          </figure>
+          <a href="https://oceanpang.github.io/">Jiangmiao Pang</a><sup>1</sup>
+        </div>
+      </div>
+
+
+
+      <div class="publication-authors">
+        <span class="author-block"><sup>1</sup>Shanghai Artificial Intelligence Laboratory, </span>
+        <span class="author-block"><sup>2</sup>The Chinese University of Hong Kong, </span>
+        <span class="author-block">*Equal contribution</span>
+      </div>
+
+
+    </div>
+    <br>
+    <!-- <pre class="is-hidden-mobile"><code>@article{ben2024homie,
+  title={TeleOpBench: A Simulator-Centric Benchmark for
+Dual-Arm Dexterous Teleoperation},
+  author={Qingwei Ben, Feiyu Jia, Jia Zeng, Junting Dong, Dahua Lin, Jiangmiao Pang},
+  journal={arXiv preprint arXiv:2502.13013},
+  year={2025}
+}</code></pre> -->
+    <p>
+      If you have any questions, please contact <a href="https://www.qingweiben.com">Qingwei Ben</a>. 🎉
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template modified from <a href="https://nerfies.github.io/">NeRFies</a> and <a
+              href="https://umi-on-legs.github.io/">UMI on Legs</a>.
+          </p>
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow and modify the <a
+              href="https://github.com/nerfies/nerfies.github.io">source
+              code</a> of this website as long as
+            you link back to the <a href="https://nerfies.github.io/">NeRFies</a> page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
