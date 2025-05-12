@@ -151,10 +151,10 @@
   <div class="hero-foot is-hidden-mobile">
     <nav class="tabs is-boxed is-fullwidth is-size-5">
       <ul>
-        <li><a href="#rl">TeleOpBench</a></li>
-        <li><a href="#hardware">Simulation</a></li>
-        <li><a href="#deploy">Teleoperation interface</a></li>
-        <li><a href="#ext">Experiments</a></li>
+        <li><a href="#Overview">TeleOpBench</a></li>
+        <li><a href="#Simulation">Simulation</a></li>
+        <li><a href="#Teleoperation">Teleoperation interface</a></li>
+        <li><a href="#Experiments">Experiments</a></li>
       </ul>
     </nav>
   </div>
@@ -207,7 +207,7 @@
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-3">Overview video</h2>
         <div class="publication-video">
           <iframe src="https://www.youtube.com/embed/PbimvvNCIdc?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -217,7 +217,7 @@
   </div>
 </section>
 </div>
-<section class="section is-small" id="rl">
+<section class="section is-small" id="Overview">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
@@ -226,33 +226,27 @@
 
 
         <div style="text-align: center;">
-          <img alt="rl" src="./statics/images/rl.png" width="80%"/>
+          <img alt="rl" src="./statics/images/teaser.jpg" width="80%"/>
         </div>
         <div class="content">
           <p>
-            We introduce three core techniques to our RL-based training framework to significantly expand the operational workspce of humanoid robots whereas ensuring robustness of locomotion:
+            We present <strong>TeleOpBench</strong>, a simulation-based benchmark for bimanual dexterous teleoperation, and evaluate four representative teleoperation modalities across multiple robot platforms (row 1). Real-robot experiments (row 2) demonstrate four teleoperation capabilities. Our teleoperation pipelines support fine-precision manipulation in the real world—for example, the left hand grasps a block while the right hand simultaneously inserts a smaller block (row 3)—and can execute long-horizon sequences, such as retrieving a tomato-laden plate from a microwave with the right hand and transferring the tomatoes to a table with the left (rows 4 and 5).          </p>
+          <p>
+            This paper makes the following <strong>contributions</strong>:
           </p>
-          
           <ol>
             <li style="color: #126BAE;">
-              <strong>Upper-body pose curriculum:</strong> Enable balance under continuous changing upper-body poses.
+              <strong>We introduce a dedicated benchmark, TeleOpBench, for dual-arm dexterous teleoperation, enabling rigorous, fair, and comprehensive comparisons across competing systems.</strong>
             </li>
             <li style="color: #126BAE;">
-              <strong>Height tracking reward:</strong> Enable the robot to squat to any required heights robustly and quickly.
+              <strong>We implement four representative teleoperation pipelines—motion-capture, VR controllers, upper-body exoskeletons, and vision-only within a single modular framework.</strong>
             </li>
             <li style="color: #126BAE;">
-              <strong>Symmetry utilization:</strong> Make the robot act more symmetrically & improve data efficiency.
+              <strong>Extensive experiments on both TeleOpBench and a real dual-arm platform reveal a strong correlation between simulated and physical performance, substantiating the benchmark’s fidelity and practical value.</strong>
             </li>
           </ol>
           
           
-          <p>
-            Our framework is totally <span style="color: #e9890c;">MoCap-free</span>, resulting in a more efficient pipeline.
-          </p>
-          
-          <p>
-            Our framework can be used to train different kinds of robots such as <span style="color: #126BAE;">Unitree G1</span>and <span style="color: #126BAE;">Fourier GR-1</span>.
-          </p>
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
               <video autoplay loop muted style="width: 100%;">
@@ -293,11 +287,11 @@
   </div>
 </section>
 
-<section class="section is-small" id="hardware">
+<section class="section is-small" id="Simulation">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2 has-text-centered is-size-4-mobile">Hardware System</h2>
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Simulation</h2>
         <div class="content">
           <p>Our hardware system features isomorphic exoskeleton arms, a pair of motion-sensing gloves, and a pedal. The pedal design for locomotion command acquisition liberates the operator's upper body, enabling simultaneous acquisition of upper-body poses. Since the exoskeleton arms are isomorphic to the controlled robot and each glove has 15 degrees of freedom (DoF), which is more than most existing dexterous hands, we can directly set upper-body joint positions from the exoskeleton readings, dispensing with IK and achieving faster and more accurate teleoperation.</p>
           
@@ -367,11 +361,11 @@
   </div> 
 </section>
 
-<section class="section is-small" id="deploy">
+<section class="section is-small" id="Teleoperation">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2 has-text-centered is-size-4-mobile">Deployment</h2>
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Teleoperation interface</h2>
         <div class="content">
           <p>
             We deploy the trained policy on the Unitree G1 in the real world and teleoperate it to perform various loco-manipulation tasks using our isomorphic exoskeleton hardware system.
@@ -543,11 +537,11 @@
   </div>
 </section>
 
-<section class="section is-small" id="ext">
+<section class="section is-small" id="Experiments">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2 has-text-centered is-size-4-mobile">Extensions</h2>
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Experiments</h2>
         <div class="content">
           <p>
             <h3 class="title is-3 has-text-centered is-size-4-mobile">1. Simulation</h3>
