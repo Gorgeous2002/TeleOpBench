@@ -282,7 +282,7 @@
             </li>
             <li style="color: #126BAE;">
               <strong>Extensive experiments on both TeleOpBench and a real dual-arm platform reveal a strong correlation
-                between simulated and physical performance, substantiating the benchmark’s fidelity and practical
+                between simulated and physical performance, substantiating the benchmark's fidelity and practical
                 value.</strong>
             </li>
           </ol>
@@ -465,7 +465,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2 has-text-centered is-size-4-mobile">Teleoperation interface</h2>
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Teleoperation Interface</h2>
         <div class="content">
           <p>
             We implement four representative teleoperation pipelines—monocular vision, MoCap, VR, and exoskeleton— under
@@ -500,31 +500,31 @@
         </div>
 
         <div class="content">
-          <h3 class="title is-3 has-text-centered is-size-4-mobile">1.Vision-based</h3>
+          <h4 class="title is-3 has-text-centered is-size-4-mobile">1.Vision-based</h4>
           <p>
-            The system first calibrates once in a neutral T‑pose, using SMPL to derive body shape β and link‑scale
-            factors s that align human and robot kinematics. During operation, SMPLer‑X streams the operator’s
-            upper‑body pose, which is rescaled by s and solved with PINK IK for arm‑and‑wrist motion, while MediaPipe
-            key‑points refined by Dex‑Retargeting drive precise finger control. Decoupling limb and hand estimation
-            yields robust, real‑time teleoperation from pure vision input.
+            The system first calibrates once in a neutral T‑pose, using SMPL to derive body shape β and link-scale
+            factors s that align human and robot kinematics. During operation, SMPLer-X streams the operator's
+            upper-body pose, which is rescaled by s and solved with PINK IK for arm-and-wrist motion, while MediaPipe
+            key-points refined by Dex-Retargeting drive precise finger control. Decoupling limb and hand estimation
+            yields robust, real-time teleoperation from pure vision input.
           </p>
-          <h3 class="title is-3 has-text-centered is-size-4-mobile">2.MoCap-based</h3>
+          <h4 class="title is-3 has-text-centered is-size-4-mobile">2.MoCap-based</h4>
           <p>
-            The inertial‑MoCap pipeline uses an Xsens MVN suit (23 IMUs) plus Manus Metagloves. After a one‑time
-            calibration, the MVN stream provides the 6‑DoF pose of 23 body segments, while each glove outputs 20
-            finger‑joint DoFs. Raw limb data are first transformed from the MVN’s global frame to the robot frame
+            The inertial-MoCap pipeline uses an Xsens MVN suit (23 IMUs) plus Manus Metagloves. After a one-time
+            calibration, the MVN stream provides the 6-DoF pose of 23 body segments, while each glove outputs 20
+            finger-joint DoFs. Raw limb data are first transformed from the MVN's global frame to the robot frame
             (pelvis origin, forward +X, vertical +Z).
             <br>
-            A joint‑specific, real‑time rescaling module then compensates for
-            human‑robot link‑length mismatches before Closed‑Loop Inverse Kinematics (CLIK) solves the robot’s
-            arm‑and‑wrist poses. For the hands, the glove’s MCP, PIP, DIP and ab/adduction angles are mapped
-            directly—subject to the dexterous hand’s joint limits—yielding accurate, low‑latency replication of both
+            A joint-specific, real-time rescaling module then compensates for
+            human-robot link-length mismatches before Closed-Loop Inverse Kinematics (CLIK) solves the robot's
+            arm-and-wrist poses. For the hands, the glove's MCP, PIP, DIP and ab/adduction angles are mapped
+            directly—subject to the dexterous hand's joint limits—yielding accurate, low-latency replication of both
             limb and finger motions.
           </p>
           <div style="text-align: center;">
             <img alt="xsens pipeline" src="./statics/images/Xsens_Pipe.png" width="100%" />
           </div>
-          <h3 class="title is-3 has-text-centered is-size-4-mobile">3.VR-based</h3>
+          <h4 class="title is-3 has-text-centered is-size-4-mobile">3.VR-based</h4>
           <p>The <strong>VR-based teleoperation system</strong> includes two main components:</p>
 
           <h5>1. Upper-body Limb Motion Control</h5>
@@ -592,7 +592,7 @@
           </div>
 
           <p>
-          <h3 class="title is-3 has-text-centered is-size-4-mobile">1. Simulation</h3>
+          <h4 class="title is-3 has-text-centered is-size-4-mobile">1. Simulation Results</h4>
           </p>
           <p>We transfer the trained policies for Unitree G1 and Fourier GR-1 from Isaac Gym to scenes developed by <a
               href="https://github.com/OpenRobotLab/GRUtopia">GRUtopia</a>, thus the robots can perform diverse
@@ -632,7 +632,7 @@
 
         <div class="content">
           <p>
-          <h3 class="title is-3 has-text-centered is-size-4-mobile">2. Imitation Learning</h3>
+          <h4 class="title is-3 has-text-centered is-size-4-mobile">2. Real-world Results</h4>
           </p>
           <p>To validate the effectiveness of the demonstratons collected by HOMIE for IL algorithms, we design two
             distinct tasks, collect data by teleoperating, train with IL algorithm, and deploy in the real world. We
@@ -661,42 +661,88 @@
   </div>
 </section>
 
-
-
-
-
-
 <section class="section is-small">
   <div class="container is-max-desktop">
     <h2 class="title is-3 is-size-4-mobile">Authors</h2>
     <div class="container has-text-centered">
-      <div class="publication-authors is-flex justify-content is-justify-content-space-around is-hidden-mobile">
+      <div class="publication-authors is-flex is-flex-wrap-wrap is-justify-content-space-around">
 
         <div class="author-block has-text-centered has-addons-centered">
           <figure class="image is-128x128">
-            <a href="https://www.qingweiben.com/">
-              <img class="is-rounded
-                      " src="./statics/authors/qingwei.png" alt="Qingwei Ben">
+            <a href="https://scholar.google.com/citations?user=gf-TicYAAAAJ&hl=zh-CN">
+              <img class="is-rounded" src="./statics/authors/hangyu.jpeg" alt="Hangyu Li">
             </a>
           </figure>
-          <a href="https://www.qingweiben.com/">Qingwei Ben</a><sup>*,1,2</sup>
+          <a href="https://scholar.google.com/citations?user=gf-TicYAAAAJ&hl=zh-CN">Hangyu Li</a><sup>*,1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://scholar.google.com/citations?user=c4OKn6IAAAAJ">
+              <img class="is-rounded" src="./statics/authors/qinzhaoy.jpeg" alt="Qin Zhao">
+            </a>
+          </figure>
+          <a href="https://scholar.google.com/citations?user=c4OKn6IAAAAJ">Qin Zhao</a><sup>*1,2</sup>
         </div>
 
         <div class="author-block has-text-centered has-addons-centered">
           <figure class="image is-128x128">
             <a href="">
-              <img class="is-rounded
-                      " src="./statics/authors/feiyu.png" alt="Feiyu Jia">
+              <img class="is-rounded" src="./statics/authors/haoran.jpeg" alt="Haoran Xu">
             </a>
           </figure>
-          <a href="">Feiyu Jia</a><sup>*,1</sup>
+          <a href="">Haoran Xu</a><sup>1,2</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=njfKRXQAAAAJ">
+              <img class="is-rounded" src="./statics/authors/xinyu.png" alt="Xinyu Jiang">
+            </a>
+          </figure>
+          <a href="https://scholar.google.com/citations?hl=zh-CN&user=njfKRXQAAAAJ">Xinyu Jiang</a><sup>1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://www.qingweiben.com/">
+              <img class="is-rounded" src="./statics/authors/qingwei.jpeg" alt="Qingwei Ben">
+            </a>
+          </figure>
+          <a href="https://www.qingweiben.com/">Qingwei Ben</a><sup>1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="">
+              <img class="is-rounded" src="./statics/authors/feiyu.png" alt="Feiyu Jia">
+            </a>
+          </figure>
+          <a href="https://trap-1.github.io/">Feiyu Jia</a><sup>1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://maxwell-zhao.github.io/">
+              <img class="is-rounded" src="./statics/authors/haoyu.png" alt="Haoyu Zhao">
+            </a>
+          </figure>
+          <a href="https://maxwell-zhao.github.io/">Haoyu Zhang</a><sup>1</sup>
+        </div>
+
+        <div class="author-block has-text-centered has-addons-centered">
+          <figure class="image is-128x128">
+            <a href="https://liangxuy.github.io/">
+              <img class="is-rounded" src="./statics/authors/liangxu.png" alt="Liang Xu">
+            </a>
+          </figure>
+          <a href="https://liangxuy.github.io/">Liang Xu</a><sup>1</sup>
         </div>
 
         <div class="author-block has-text-centered has-addons-centered">
           <figure class="image is-128x128">
             <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">
-              <img class="is-rounded
-                      " src="./statics/authors/jiazeng.jpeg" alt="Jia Zeng">
+              <img class="is-rounded" src="./statics/authors/jiazeng.jpeg" alt="Jia Zeng">
             </a>
           </figure>
           <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">Jia Zeng</a><sup>1</sup>
@@ -704,107 +750,50 @@
 
         <div class="author-block has-text-centered has-addons-centered">
           <figure class="image is-128x128">
-            <a href="https://jtdong.com/">
-              <img class="is-rounded
-                      " src="./statics/authors/junting.jpg" alt="Junting Dong">
-            </a>
-          </figure>
-          <a href="https://jtdong.com/">Junting Dong</a><sup>1</sup>
-        </div>
-
-
-        <!-- <div class="author-block has-text-centered has-addons-centered">
-          <figure class="image is-128x128">
-            <a href="https://dahua.site/">
-              <img class="is-rounded
-                      " src="./statics/images/dahua.png" alt="Dahua Lin">
-            </a>
-          </figure>
-          <a href="https://dahua.site/">Dahua Lin</a><sup>1,2</sup>
-        </div> -->
-
-        <div class="author-block has-text-centered has-addons-centered">
-          <figure class="image is-128x128">
-            <a href="https://oceanpang.github.io/">
-              <img class="is-rounded
-                      " src="./statics/authors/miao.png" alt="Jiangmiao Pang">
-            </a>
-          </figure>
-          <a href="https://oceanpang.github.io/">Jiangmiao Pang</a><sup>1</sup>
-        </div>
-      </div>
-
-      <div class="is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly is-hidden-tablet">
-        <div class="author-block has-text-centered has-addons-centered">
-          <figure class="image is-128x128">
-            <a href="https://www.qingweiben.com/">
-              <img class="is-rounded
-                      " src="./statics/authors/qingwei.png" alt="Qingwei Ben">
-            </a>
-          </figure>
-          <a href="https://www.qingweiben.com/">Qingwei Ben</a><sup>*,1,2</sup>
-        </div>
-
-        <div class="author-block has-text-centered has-addons-centered">
-          <figure class="image is-128x128">
             <a href="">
-              <img class="is-rounded
-                      " src="./statics/authors/feiyu.png" alt="Feiyu Jia">
+              <img class="is-rounded" src="./statics/authors/hanqing.png" alt="Hanqing Wang">
             </a>
           </figure>
-          <a href="https://trap-1.github.io/">Feiyu Jia</a><sup>*,1</sup>
+          <a href="https://hanqingwangai.github.io/">Hanqing Wang</a><sup>1</sup>
         </div>
 
         <div class="author-block has-text-centered has-addons-centered">
-          <figure class="image is-128x128">
-            <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">
-              <img class="is-rounded
-                      " src="./statics/authors/jiazeng.jpeg" alt="Jia Zeng">
+          <figure class="image is-128x256">
+            <a href="https://daibo.info/">
+              <img class="is-rounded" src="./statics/authors/bodai.jpeg" alt="Bo Dai">
             </a>
           </figure>
-          <a href="https://scholar.google.com/citations?user=kYrUfMoAAAAJ&hl=zh-CN">Jia Zeng</a><sup>1</sup>
+          <a href="https://daibo.info/">Bo Dai</a><sup>3,4</sup>
         </div>
 
         <div class="author-block has-text-centered has-addons-centered">
           <figure class="image is-128x128">
             <a href="https://jtdong.com/">
-              <img class="is-rounded
-                      " src="./statics/authors/junting.jpg" alt="Junting Dong">
+              <img class="is-rounded" src="./statics/authors/junting.jpg" alt="Junting Dong">
             </a>
           </figure>
-          <a href="https://jtdong.com/">Junting Dong</a><sup>1</sup>
-        </div>
-
-
-        <div class="author-block has-text-centered has-addons-centered">
-          <figure class="image is-128x128">
-            <a href="https://dahua.site/">
-              <img class="is-rounded
-                      " src="./statics/authors/dahua.png" alt="Dahua Lin">
-            </a>
-          </figure>
-          <a href="https://dahua.site/">Dahua Lin</a><sup>1,2</sup>
+          <a href="https://jtdong.com/">Junting Dong</a><sup>1,&dagger;</sup>
         </div>
 
         <div class="author-block has-text-centered has-addons-centered">
           <figure class="image is-128x128">
             <a href="https://oceanpang.github.io/">
-              <img class="is-rounded
-                      " src="./statics/authors/miao.png" alt="Jiangmiao Pang">
+              <img class="is-rounded" src="./statics/authors/miao.png" alt="Jiangmiao Pang">
             </a>
           </figure>
           <a href="https://oceanpang.github.io/">Jiangmiao Pang</a><sup>1</sup>
         </div>
       </div>
-
-
 
       <div class="publication-authors">
         <span class="author-block"><sup>1</sup>Shanghai Artificial Intelligence Laboratory, </span>
-        <span class="author-block"><sup>2</sup>The Chinese University of Hong Kong, </span>
+        <span class="author-block"><sup>2</sup>Zhejiang University, </span>
+        <span class="author-block"><sup>3</sup>The University of Hong Kong, </span>
+        <span class="author-block"><sup>4</sup>Feeling AI</span>
+        <br>
         <span class="author-block">*Equal contribution</span>
+        <span class="author-block">&dagger;Corresponding author</span>
       </div>
-
 
     </div>
     <br>
@@ -816,7 +805,8 @@ Dual-Arm Dexterous Teleoperation},
   year={2025}
 }</code></pre> -->
     <p>
-      If you have any questions, please contact <a href="https://www.qingweiben.com">Qingwei Ben</a>. 🎉
+      If you have any questions, please contact <a href="mailto:cyjdlhy@gmail.com">Hangyu Li<sup>&#9993;</sup></a> and
+      <a href="mailto:zhaoqin@pjab.org.cn">Qin Zhao<sup>&#9993;</sup></a>. 🎉
     </p>
   </div>
 </section>
@@ -827,8 +817,9 @@ Dual-Arm Dexterous Teleoperation},
       <div class="column is-8">
         <div class="content">
           <p>
-            Website template modified from <a href="https://nerfies.github.io/">NeRFies</a> and <a
-              href="https://umi-on-legs.github.io/">UMI on Legs</a>.
+            Website template modified from <a href="https://homietele.github.io/">HOMIE</a>, <a
+              href="https://nerfies.github.io/">NeRFies</a> and <a href="https://umi-on-legs.github.io/">UMI on
+              Legs</a>.
           </p>
           <p>
             This website is licensed under a <a rel="license"
