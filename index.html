@@ -153,7 +153,7 @@
     <nav class="tabs is-boxed is-fullwidth is-size-5">
       <ul>
         <li><a href="#Overview">TeleOpBench</a></li>
-        <li><a href="#Simulation">Simulation</a></li>
+        <li><a href="#Task Environments">Task Environments</a></li>
         <li><a href="#Teleoperation">Teleoperation interface</a></li>
         <li><a href="#Experiments">Experiments</a></li>
       </ul>
@@ -257,7 +257,7 @@
 
 
         <div style="text-align: center;">
-          <img alt="rl" src="./statics/images/teaser.jpg" width="80%" />
+          <img alt="teaser" src="./statics/images/teaser.png" width="100%" />
         </div>
         <div class="content">
           <p>
@@ -287,7 +287,7 @@
             </li>
           </ol>
 
-
+          <!-- 视频 and 图表 -->
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
               <video autoplay loop muted style="width: 100%;">
@@ -311,6 +311,7 @@
           <div style="text-align: center;">
             <img alt="rl" src="./statics/images/aba.png" width="100%" />
           </div>
+          <!-- 视频 and 图表 ended -->
 
           <p>We conduct serval ablation experiments to verify the effectiveness of our framework, and we find:</p>
           <ol>
@@ -332,19 +333,19 @@
   </div>
 </section>
 
-<section class="section is-small" id="Simulation">
+<section class="section is-small" id="Task Environments">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2 has-text-centered is-size-4-mobile">Simulation</h2>
+        <h2 class="title is-2 has-text-centered is-size-4-mobile">Task Environments</h2>
         <div class="content">
-          <p>Our hardware system features isomorphic exoskeleton arms, a pair of motion-sensing gloves, and a pedal. The
-            pedal design for locomotion command acquisition liberates the operator's upper body, enabling simultaneous
-            acquisition of upper-body poses. Since the exoskeleton arms are isomorphic to the controlled robot and each
-            glove has 15 degrees of freedom (DoF), which is more than most existing dexterous hands, we can directly set
-            upper-body joint positions from the exoskeleton readings, dispensing with IK and achieving faster and more
-            accurate teleoperation.</p>
-
+          <p>We employ NVIDIA Isaac Sim as our simulation platform because its high-performance PhysX engine and
+            photorealistic renderer enable the construction of environments that closely approximate real-world
+            conditions. Each scene features a humanoid robot fitted with bimanual dexterous hands and the task-relevant
+            objects; operators are instructed to execute the required manipulations exactly as specified. For every
+            trial, we record both task success and completion time, which together constitute our primary performance
+            metrics.</p>
+          <!-- image and videos -->
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
               <video autoplay loop muted style="width: 100%; height: 100%;">
@@ -410,11 +411,55 @@
         <p>The total cost of the hardware system is only <span style="color: #e9890c;">$0.5k</span>, significantly lower
           than that of MoCap devices. We list the detailed costs for all parts <a
             href="https://docs.google.com/document/d/1o9QVqU8puq1ob-knYmQQiqrZheUKpCePHz2J3zQot20">here</a>.</p>
+        <div class="content">
+          <p>
+          <h3 class="title is-3 has-text-centered is-size-4-mobile">1.Humanoid robots</h3>
+          </p>
+          <p>
+            For a comprehensive hardware evaluation, we employ three commercially available humanoid platforms—<span
+              style="color: #126BAE;">Unitree G1</span>, <span style="color: #126BAE;">Unitree H1-2</span>, and <span
+              style="color: #126BAE;">Fourier GR1-T2</span>.
+          </p>
+          <p>
+          <h3 class="title is-3 has-text-centered is-size-4-mobile">2.Task setting</h3>
+          </p>
+          <p>
+            TeleOpBench offers a comprehensive, multi-tiered suite of <span style="color: #e9890c;">30</span> bimanual
+            dexterousmanipulation tasks. The tasks
+            are hierarchically organized by complexity—e.g., whether they require coordinated two-hand interaction or
+            long-horizon sequencing—so that both coarse- and fine-grained teleoperation modalities can be evaluated in
+            an appropriately graduated setting.
+          </p>
+          <div style="text-align: center;">
+            <img alt="task" src="./statics/images/task.png" width="100%" />
+          </div>
+          <p>
+          <h3 class="title is-3 has-text-centered is-size-4-mobile">3.Observation</h3>
+          </p>
+          <p>
+            Our simulation framework records a rich set of observations for every teleoperation episode, enabling
+            downstream imitation-learning studies and further amplifying the value of TeleOpBench. The logged data
+            include:
+          </p>
+          <ol>
+            <li>
+              robot-state vectors—joint positions, angles, velocities, and related kinematics;
+            </li>
+            <li>
+              camera streams—RGB images from a head-mounted, first-person camera and a fixed third-person camera facing
+              the workbench;
+            </li>
+            <li>
+              task-level environment metadata—precise object positions and orientations.
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
   </div>
 </section>
+<!-- 闭合 Task Environments -->
 
 <section class="section is-small" id="Teleoperation">
   <div class="container is-max-desktop">
@@ -423,9 +468,11 @@
         <h2 class="title is-2 has-text-centered is-size-4-mobile">Teleoperation interface</h2>
         <div class="content">
           <p>
-            We deploy the trained policy on the Unitree G1 in the real world and teleoperate it to perform various
-            loco-manipulation tasks using our isomorphic exoskeleton hardware system.
+            We implement four representative teleoperation pipelines—monocular vision, MoCap, VR, and exoskeleton— under
+            a unified, modular interface.
           </p>
+
+
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
               <video autoplay loop muted style="width: 95%; height: 100%;">
@@ -443,147 +490,6 @@
             </div>
           </div>
           <br>
-          <br>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/flower.mp4" type="video/mp4">
-                Squat to hold flower and transfer.
-              </video>
-              <p><span style="color: #126BAE;">3. </span>Squat to hold flower and transfer.</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/bottle.mp4" type="video/mp4">
-                Squat to grasp a bottle.
-              </video>
-              <p><span style="color: #126BAE;">4. </span>Squat to grasp a bottle.</p>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/pick&place.mp4" type="video/mp4">
-                Hand over and pick & place.
-              </video>
-              <p><span style="color: #126BAE;">5. </span>Hand over and pick & place.</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/oven.mp4" type="video/mp4">
-                Step back and open oven.
-              </video>
-              <p><span style="color: #126BAE;">6. </span>Step back and open oven.</p>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/shelfsquat.mp4" type="video/mp4">
-                Transfer a grasp from lower to higher.
-              </video>
-              <p><span style="color: #126BAE;">7. </span>Transfer a grasp from lower to higher.</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/shelftrans.mp4" type="video/mp4">
-                Transfer a box from one shelf to another.
-              </video>
-              <p><span style="color: #126BAE;">8. </span>Transfer a box from one shelf to another.</p>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/push.mp4" type="video/mp4">
-                Push the man on a chair.
-              </video>
-              <p><span style="color: #126BAE;">9. </span>Push the man on a chair.</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/colla.mp4" type="video/mp4">
-                Hand over between two robots.
-              </video>
-              <p><span style="color: #126BAE;">10. </span>Hand over between two robots.</p>
-            </div>
-          </div>
-          <br>
-          <br>
-        </div>
-
-        <div class="content">
-          <p>
-            We further conduct some experiments to show the robustness of our policy.
-          </p>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/bang.mp4" type="video/mp4">
-                Strong hitting.
-              </video>
-              <p><span style="color: #126BAE;">1. </span>Strong hitting.</p>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/ball.mp4" type="video/mp4">
-                Hit with a heavy ball.
-              </video>
-              <p><span style="color: #126BAE;">2. </span>Hit with a heavy ball.</p>
-            </div>
-          </div>
-          <br>
-          <br>
-        </div>
-        <div class="content">
-
-          <p>To demonstrate the effectiveness of the isomorphic exoskeleton, we compare the task completion times across
-            four different tasks between our hardware system and <a
-              href="https://github.com/OpenTeleVision/TeleVision">OpenTelevision</a>.</p>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/pickpla.mp4" type="video/mp4">
-                Pick & Place.
-              </video>
-              <p><span style="color: #126BAE;">1. </span>Pick & Place.</p>
-            </div>
-
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/scan.mp4" type="video/mp4">
-                Scan Barcode.
-              </video>
-              <p><span style="color: #126BAE;">2. </span>Scan Barcode.</p>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/handover.mp4" type="video/mp4">
-                Hand Over.
-              </video>
-              <p><span style="color: #126BAE;">3. </span>Hand Over.</p>
-            </div>
-
-            <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
-                <source src="./statics/videos/openn.mp4" type="video/mp4">
-                Open Oven.
-              </video>
-              <p><span style="color: #126BAE;">4. </span>Open Oven.</p>
-            </div>
-          </div>
-          <br>
-          <br>
           <div style="text-align: center;">
             <img alt="vsopentv" src="./statics/images/opentv.png" width="80%" />
           </div>
@@ -593,10 +499,83 @@
             movement.</p>
         </div>
 
+        <div class="content">
+          <h3 class="title is-3 has-text-centered is-size-4-mobile">1.Vision-based</h3>
+          <p>
+            The system first calibrates once in a neutral T‑pose, using SMPL to derive body shape β and link‑scale
+            factors s that align human and robot kinematics. During operation, SMPLer‑X streams the operator’s
+            upper‑body pose, which is rescaled by s and solved with PINK IK for arm‑and‑wrist motion, while MediaPipe
+            key‑points refined by Dex‑Retargeting drive precise finger control. Decoupling limb and hand estimation
+            yields robust, real‑time teleoperation from pure vision input.
+          </p>
+          <h3 class="title is-3 has-text-centered is-size-4-mobile">2.MoCap-based</h3>
+          <p>
+            The inertial‑MoCap pipeline uses an Xsens MVN suit (23 IMUs) plus Manus Metagloves. After a one‑time
+            calibration, the MVN stream provides the 6‑DoF pose of 23 body segments, while each glove outputs 20
+            finger‑joint DoFs. Raw limb data are first transformed from the MVN’s global frame to the robot frame
+            (pelvis origin, forward +X, vertical +Z).
+            <br>
+            A joint‑specific, real‑time rescaling module then compensates for
+            human‑robot link‑length mismatches before Closed‑Loop Inverse Kinematics (CLIK) solves the robot’s
+            arm‑and‑wrist poses. For the hands, the glove’s MCP, PIP, DIP and ab/adduction angles are mapped
+            directly—subject to the dexterous hand’s joint limits—yielding accurate, low‑latency replication of both
+            limb and finger motions.
+          </p>
+          <div style="text-align: center;">
+            <img alt="xsens pipeline" src="./statics/images/Xsens_Pipe.png" width="100%" />
+          </div>
+          <h3 class="title is-3 has-text-centered is-size-4-mobile">3.VR-based</h3>
+          <p>The <strong>VR-based teleoperation system</strong> includes two main components:</p>
+
+          <h5>1. Upper-body Limb Motion Control</h5>
+          <p>
+            For upper-body limb motion control, the Apple VisionPro is utilized for hand, wrist, and head tracking,
+            adhering to the OpenXR coordinate system. Wrist and head poses are initially transformed into the robot's
+            coordinate frame. The wrist offset relative to the head is then converted into an offset relative to the
+            pelvis. Only the wrist translation data is fed to an IK algorithm based on Pink, which computes all
+            degrees of freedom except for finger joints.
+          </p>
+          <h5>2. Hand Control</h5>
+          <p>
+            For hand control, to enhance manual dexterity across different teleoperators, the distal phalanx lengths of
+            each operator's fingers are measured and scaled proportionally to match the corresponding robotic finger
+            segments. Subsequently, vector-based optimizers are employed, following the OpenTelevision approach, to
+            generate robot-hand joint commands within the dexterous-retargeting framework of AnyTeleop.
+          </p>
+          <h5 class="title is-3 has-text-centered is-size-4-mobile">4.Exoskeleton-based</h5>
+          <p>
+            This exoskeleton-based teleoperation framework creates isomorphic systems customized to replicate a target
+            humanoid's upper body kinematics, based on HOMIE principles. Servo-driven joints ensure real-time
+            synchronization of operator and robot movements. Integrated motion-sensing gloves with Hall-effect sensors
+            provide 15 DoF per-hand tracking. By directly mapping operator kinematics to the humanoid's joints, this
+            method bypasses inverse kinematics (IK) approximations, thereby eliminating algorithmic errors and enhancing
+            operational bandwidth and positional accuracy.
+          </p>
+          <div class="video-container" style="display: flex;">
+            <div style="flex: 1; text-align: center;">
+              <img alt="exo-g1" src="./statics/images/g1real.png" width="50%" />
+              <p>
+                <span style="color: #126BAE;">1. </span>Isomorphic Exoskeleton for Unitree G1.
+              </p>
+
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <img alt="exo-gr1" src="./statics/images/gr1real.png" width="50%" />
+              <p><span style="color: #126BAE;">2. </span>Isomorphic Exoskeleton for Fourier GR-1.</p>
+
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <img alt="exo-h1" src="./statics/images/h1real.jpg" width="50%" />
+              <p><span style="color: #126BAE;">3. </span>Isomorphic Exoskeleton for Unitree H1-2.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
+<!-- 闭合 Teleoperation -->
 
 <section class="section is-small" id="Experiments">
   <div class="container is-max-desktop">
@@ -604,6 +583,14 @@
       <div class="column is-four-fifths">
         <h2 class="title is-2 has-text-centered is-size-4-mobile">Experiments</h2>
         <div class="content">
+          <p>
+            From top to bottom, we illustrate the four teleoperation modalities executing the following tasks: ball
+            trashcan, pen brushpot, ball bimanual, and pot bimanual.
+          </p>
+          <div style="text-align: center;">
+            <img alt="bench all" src="./statics/images/Figure3_process.png" width="100%" />
+          </div>
+          
           <p>
           <h3 class="title is-3 has-text-centered is-size-4-mobile">1. Simulation</h3>
           </p>
