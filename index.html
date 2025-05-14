@@ -287,7 +287,37 @@
             </li>
           </ol>
 
-          <!-- 视频 and 图表 -->
+          <!-- 三个机器人视频展示 -->
+          <div class="video-container" style="display: flex; gap: 10px;">
+            <!-- G1 视频 -->
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted playsinline style="width: 100%; border-radius: 8px;">
+                <source src="./statics/videos/g1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Unitree G1</p>
+            </div>
+
+            <!-- GR1-T2 视频 -->
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted playsinline style="width: 100%; border-radius: 8px;">
+                <source src="./statics/videos/gr1t2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Fourier GR1-T2</p>
+            </div>
+
+            <!-- H1-2 视频 -->
+            <div style="flex: 1; text-align: center;">
+              <video autoplay loop muted playsinline style="width: 100%; border-radius: 8px;">
+                <source src="./statics/videos/h1-2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Fourier H1-2</p>
+            </div>
+          </div>
+
+          <!-- 视频 and 图表
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
               <video autoplay loop muted style="width: 100%;">
@@ -310,10 +340,10 @@
             and squat robustly.</p>
           <div style="text-align: center;">
             <img alt="rl" src="./statics/images/aba.png" width="100%" />
-          </div>
+          </div> -->
           <!-- 视频 and 图表 ended -->
 
-          <p>We conduct serval ablation experiments to verify the effectiveness of our framework, and we find:</p>
+          <!-- <p>We conduct serval ablation experiments to verify the effectiveness of our framework, and we find:</p>
           <ol>
             <li>
               Our upper-body pose curriculum can help robots better learn to balance under dynamic upper-body movements
@@ -325,13 +355,16 @@
             <li>
               The symmetry utilization can both significantly accelerate the training process by over 10 times and
               guarantee the symmetry of the trained policy.
-            </li>
+            </li> -->
           </ol>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+
 
 <section class="section is-small" id="Task Environments">
   <div class="container is-max-desktop">
@@ -346,7 +379,7 @@
             trial, we record both task success and completion time, which together constitute our primary performance
             metrics.</p>
           <!-- image and videos -->
-          <div class="video-container" style="display: flex;">
+          <!-- <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
               <video autoplay loop muted style="width: 100%; height: 100%;">
                 <source src="./statics/videos/exo.mp4" type="video/mp4">
@@ -361,10 +394,18 @@
               </video>
               <p>Pedal.</p>
             </div>
-          </div> <!-- 闭合 video-container -->
+          </div> 闭合 video-container -->
+        <!-- </div> -->
+          <!-- 标题 -->
+        <h2 style="text-align: center; margin-top: 40px;">30 High-Fidelity Task Environments</h2>
+
+        <!-- 展示任务图像 -->
+        <div style="text-align: center; margin-top: 20px;">
+          <img src="./statics/teleop_images/task_visualization.pdf" alt="Task Visualization" style="width: 100%; max-width: 1000px; border-radius: 8px;">
         </div>
         <br>
-        <div class="content">
+
+        <!-- <div class="content">
           <p>We design hardware systems for both <span style="color: #126BAE;">Unitree G1</span> and <span
               style="color: #126BAE;">Fourier GR-1</span>. Notably, our gloves can be detached from the arms, allowing
             them to be reused in systems isomorphic to different robots. </p>
@@ -378,8 +419,8 @@
               <p><span style="color: #126BAE;">2. </span>Isomorphic Exoskeleton for Fourier GR-1.</p>
             </div>
           </div> <!-- 闭合 video-container -->
-        </div>
-        <div class="content">
+        <!-- </div> --> 
+        <!-- <div class="content">
           <p>Using our hardware system, <span style="color: #e9890c;">one single operator</span> can choose to control:
           </p>
 
@@ -406,13 +447,13 @@
               <p><span style="color: #126BAE;">3. </span>Whole body of humanoids.</p>
             </div>
           </div> <!-- 闭合 video-container -->
-        </div>
+        <!-- </div>
         <br>
         <p>The total cost of the hardware system is only <span style="color: #e9890c;">$0.5k</span>, significantly lower
           than that of MoCap devices. We list the detailed costs for all parts <a
             href="https://docs.google.com/document/d/1o9QVqU8puq1ob-knYmQQiqrZheUKpCePHz2J3zQot20">here</a>.</p>
-        <div class="content">
-          <p>
+        <div class="content"> -->
+          <!-- <p>
           <h3 class="title is-3 has-text-centered is-size-4-mobile">1.Humanoid robots</h3>
           </p>
           <p>
@@ -451,8 +492,8 @@
             </li>
             <li>
               task-level environment metadata—precise object positions and orientations.
-            </li>
-          </ol>
+            </li> -->
+          <!-- </ol> --> 
         </div>
       </div>
     </div>
@@ -460,6 +501,240 @@
   </div>
 </section>
 <!-- 闭合 Task Environments -->
+
+
+<!-- 加入真机视频模块 -->
+<!-- 真机视频模块标题 -->
+<h2 style="text-align: center; margin-top: 40px;">Real-World Robot Control with Four Teleoperation Modes</h2>
+
+<!-- 通用视频行样式 -->
+<style>
+  .video-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .video-box {
+    max-width: 400px;
+    flex: 1 1 45%;
+    text-align: center;
+  }
+  .video-box video {
+    width: 100%;
+    border-radius: 10px;
+  }
+</style>
+
+<!-- Vision -->
+<h3 style="text-align: center;">Vision</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/vision1.mp4" type="video/mp4">
+    </video>
+    <p>Vision Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/vision2.mp4" type="video/mp4">
+    </video>
+    <p>Vision Control 2</p>
+  </div>
+</div>
+
+<!-- VisionPro -->
+<h3 style="text-align: center;">VisionPro</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/visionpro1.mp4" type="video/mp4">
+    </video>
+    <p>VisionPro Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/visionpro2.mp4" type="video/mp4">
+    </video>
+    <p>VisionPro Control 2</p>
+  </div>
+</div>
+
+<!-- Exoskeleton -->
+<h3 style="text-align: center;">Exoskeleton</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/exo1.mp4" type="video/mp4">
+    </video>
+    <p>Exoskeleton Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/exo2.mp4" type="video/mp4">
+    </video>
+    <p>Exoskeleton Control 2</p>
+  </div>
+</div>
+
+<!-- Xsens -->
+<h3 style="text-align: center;">Xsens</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/xsens1.mp4" type="video/mp4">
+    </video>
+    <p>Xsens Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/xsens2.mp4" type="video/mp4">
+    </video>
+    <p>Xsens Control 2</p>
+  </div>
+</div>
+
+
+<!-- 仿真视频 -->
+<!-- 模拟环境视频模块标题 -->
+<h2 style="text-align: center; margin-top: 40px;">Simulated Control with Four Teleoperation Modes</h2>
+
+<!-- 通用视频行样式（若前面已定义可省略） -->
+<style>
+  .video-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .video-box {
+    max-width: 400px;
+    flex: 1 1 45%;
+    text-align: center;
+  }
+  .video-box video {
+    width: 100%;
+    border-radius: 10px;
+  }
+</style>
+
+<!-- Sim Vision -->
+<h3 style="text-align: center;">Sim - Vision</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_vision1.mp4" type="video/mp4">
+    </video>
+    <p>Sim Vision Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_vision2.mp4" type="video/mp4">
+    </video>
+    <p>Sim Vision Control 2</p>
+  </div>
+</div>
+
+<!-- Sim VisionPro -->
+<h3 style="text-align: center;">Sim - VisionPro</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_visionpro1.mp4" type="video/mp4">
+    </video>
+    <p>Sim VisionPro Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_visionpro2.mp4" type="video/mp4">
+    </video>
+    <p>Sim VisionPro Control 2</p>
+  </div>
+</div>
+
+<!-- Sim Exoskeleton -->
+<h3 style="text-align: center;">Sim - Exoskeleton</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_exo1.mp4" type="video/mp4">
+    </video>
+    <p>Sim Exoskeleton Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_exo2.mp4" type="video/mp4">
+    </video>
+    <p>Sim Exoskeleton Control 2</p>
+  </div>
+</div>
+
+<!-- Sim Xsens -->
+<h3 style="text-align: center;">Sim - Xsens</h3>
+<div class="video-row">
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_xsens1.mp4" type="video/mp4">
+    </video>
+    <p>Sim Xsens Control 1</p>
+  </div>
+  <div class="video-box">
+    <video autoplay loop muted>
+      <source src="./statics/videos/sim_xsens2.mp4" type="video/mp4">
+    </video>
+    <p>Sim Xsens Control 2</p>
+  </div>
+</div>
+
+<!-- 折线图的放入 -->
+<h2 style="text-align: center; margin-top: 40px;">Sim and Real Deployment</h2>
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div style="flex: 1; text-align: center; max-width: 30%;">
+    <img src="./statics/teleop_images/sim.png" alt="Sim" style="width: 100%; height: auto;" />
+    <p>Sim</p>
+  </div>
+  <div style="flex: 1; text-align: center; max-width: 30%;">
+    <img src="./statics/teleop_images/real.png" alt="Real" style="width: 100%; height: auto;" />
+    <p>Real</p>
+  </div>
+</div>
+
+
+<h2 style="text-align: center; margin-top: 40px;">High-Precision Teleoperation Demonstration - Xsens</h2>
+
+<!-- 视频1 -->
+<div style="text-align: center; margin-bottom: 20px;">
+  <video autoplay loop muted style="width: 60%; max-width: 800px;">
+    <source src="./statics/videos/High-Precision1.mp4" type="video/mp4">
+    High-Precision Video 1
+  </video>
+  <p>High-Precision Control with Xsens - Demo 1</p>
+</div>
+
+<!-- 视频2 -->
+<div style="text-align: center; margin-bottom: 20px;">
+  <video autoplay loop muted style="width: 60%; max-width: 800px;">
+    <source src="./statics/videos/High-Precision2.mp4" type="video/mp4">
+    High-Precision Video 2
+  </video>
+  <p>High-Precision Control with Xsens - Demo 2</p>
+</div>
+
+<!-- 仿真视频 -->
+<div style="text-align: center; margin-bottom: 20px;">
+  <video autoplay loop muted style="width: 60%; max-width: 800px;">
+    <source src="./statics/videos/sim_High-Precision.mp4" type="video/mp4">
+    Simulated High-Precision Xsens
+  </video>
+  <p>Simulated Xsens-Controlled Precision Task</p>
+</div>
+
+
+
+
 
 <section class="section is-small" id="Teleoperation">
   <div class="container is-max-desktop">
