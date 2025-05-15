@@ -291,7 +291,7 @@
           <div class="video-container" style="display: flex; gap: 10px;">
             <!-- G1 视频 -->
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted playsinline style="width: 100%; border-radius: 8px;">
+              <video autoplay muted loop playsinline controls playsinline style="width: 100%; border-radius: 8px;">
                 <source src="./statics/videos/g1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -300,7 +300,7 @@
 
             <!-- GR1-T2 视频 -->
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted playsinline style="width: 100%; border-radius: 8px;">
+              <video autoplay muted loop playsinline controls playsinline style="width: 100%; border-radius: 8px;">
                 <source src="./statics/videos/gr1t2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -309,7 +309,7 @@
 
             <!-- H1-2 视频 -->
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted playsinline style="width: 100%; border-radius: 8px;">
+              <video autoplay muted loop playsinline controls playsinline style="width: 100%; border-radius: 8px;">
                 <source src="./statics/videos/h1-2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -320,14 +320,14 @@
           <!-- 视频 and 图表
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%;">
                 <source src="./statics/videos/g1.mp4" type="video/mp4">
                 Unitree G1 trained in Isaac Gym.
               </video>
               <p>Unitree G1 trained in Isaac Gym.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%;">
                 <source src="./statics/videos/gr1.mp4" type="video/mp4">
                 Fourier GR-1 trained in Isaac Gym.
               </video>
@@ -381,30 +381,31 @@
           <!-- image and videos -->
           <!-- <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%; height: 100%;">
                 <source src="./statics/videos/exo.mp4" type="video/mp4">
                 Arms and Hands.
               </video>
               <p>Arms and Hands.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%; height: 100%;">
                 <source src="./statics/videos/pedal.mp4" type="video/mp4">
                 Pedal.
               </video>
               <p>Pedal.</p>
             </div>
           </div> 闭合 video-container -->
-        <!-- </div> -->
+          <!-- </div> -->
           <!-- 标题 -->
-        <h2 style="text-align: center; margin-top: 40px;">30 High-Fidelity Task Environments</h2>
+          <h2 style="text-align: center; margin-top: 40px;">30 High-Fidelity Task Environments</h2>
 
-        <!-- 展示任务图像 -->
-        <div style="text-align: center; margin-top: 20px;">
-          <img src="./statics/teleop_images/task_visualization.jpg" alt="Task Visualization" style="width: 80%; max-width: 1000px; border-radius: 8px;">
-        </div>
+          <!-- 展示任务图像 -->
+          <div style="text-align: center; margin-top: 20px;">
+            <img src="./statics/teleop_images/task_visualization.jpg" alt="Task Visualization"
+              style="width: 80%; max-width: 1000px; border-radius: 8px;">
+          </div>
 
-        <!-- <div class="content">
+          <!-- <div class="content">
           <p>We design hardware systems for both <span style="color: #126BAE;">Unitree G1</span> and <span
               style="color: #126BAE;">Fourier GR-1</span>. Notably, our gloves can be detached from the arms, allowing
             them to be reused in systems isomorphic to different robots. </p>
@@ -418,35 +419,35 @@
               <p><span style="color: #126BAE;">2. </span>Isomorphic Exoskeleton for Fourier GR-1.</p>
             </div>
           </div> <!-- 闭合 video-container -->
-        <!-- </div> --> 
-        <!-- <div class="content">
+          <!-- </div> -->
+          <!-- <div class="content">
           <p>Using our hardware system, <span style="color: #e9890c;">one single operator</span> can choose to control:
           </p>
 
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%; height: 100%;">
                 <source src="./statics/videos/hand.mp4" type="video/mp4">
                 Diverse dexterous hands.
               </video>
               <p><span style="color: #126BAE;">1. </span>Diverse dexterous hands.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%; height: 100%;">
                 <source src="./statics/videos/arm.mp4" type="video/mp4">
                 Upper-body of Humanoids.
               </video>
               <p><span style="color: #126BAE;">2. </span>Upper body of Humanoids.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 100%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 100%; height: 100%;">
                 <source src="./statics/videos/whole.mp4" type="video/mp4">
                 Whole body of humanoids.
               </video>
               <p><span style="color: #126BAE;">3. </span>Whole body of humanoids.</p>
             </div>
           </div> <!-- 闭合 video-container -->
-        <!-- </div>
+          <!-- </div>
         <br>
         <p>The total cost of the hardware system is only <span style="color: #e9890c;">$0.5k</span>, significantly lower
           than that of MoCap devices. We list the detailed costs for all parts <a
@@ -492,7 +493,7 @@
             <li>
               task-level environment metadata—precise object positions and orientations.
             </li> -->
-          <!-- </ol> --> 
+          <!-- </ol> -->
         </div>
       </div>
     </div>
@@ -515,11 +516,13 @@
     margin-bottom: 30px;
     flex-wrap: wrap;
   }
+
   .video-box {
     max-width: 400px;
     flex: 1 1 45%;
     text-align: center;
   }
+
   .video-box video {
     width: 100%;
     border-radius: 10px;
@@ -530,13 +533,13 @@
 <h3 style="text-align: center;">Vision</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/vision1.mp4" type="video/mp4">
     </video>
     <p>Vision Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/vision2.mp4" type="video/mp4">
     </video>
     <p>Vision Control 2</p>
@@ -547,13 +550,13 @@
 <h3 style="text-align: center;">VisionPro</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/visionpro1.mp4" type="video/mp4">
     </video>
     <p>VisionPro Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/visionpro2.mp4" type="video/mp4">
     </video>
     <p>VisionPro Control 2</p>
@@ -564,13 +567,13 @@
 <h3 style="text-align: center;">Exoskeleton</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/exo1.mp4" type="video/mp4">
     </video>
     <p>Exoskeleton Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/exo2.mp4" type="video/mp4">
     </video>
     <p>Exoskeleton Control 2</p>
@@ -581,13 +584,13 @@
 <h3 style="text-align: center;">Xsens</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/xsens1.mp4" type="video/mp4">
     </video>
     <p>Xsens Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/xsens2.mp4" type="video/mp4">
     </video>
     <p>Xsens Control 2</p>
@@ -608,11 +611,13 @@
     margin-bottom: 30px;
     flex-wrap: wrap;
   }
+
   .video-box {
     max-width: 400px;
     flex: 1 1 45%;
     text-align: center;
   }
+
   .video-box video {
     width: 100%;
     border-radius: 10px;
@@ -623,13 +628,13 @@
 <h3 style="text-align: center;">Sim - Vision</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_vision1.mp4" type="video/mp4">
     </video>
     <p>Sim Vision Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_vision2.mp4" type="video/mp4">
     </video>
     <p>Sim Vision Control 2</p>
@@ -640,13 +645,13 @@
 <h3 style="text-align: center;">Sim - VisionPro</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_visionpro1.mp4" type="video/mp4">
     </video>
     <p>Sim VisionPro Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_visionpro2.mp4" type="video/mp4">
     </video>
     <p>Sim VisionPro Control 2</p>
@@ -657,13 +662,13 @@
 <h3 style="text-align: center;">Sim - Exoskeleton</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_exo1.mp4" type="video/mp4">
     </video>
     <p>Sim Exoskeleton Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_exo2.mp4" type="video/mp4">
     </video>
     <p>Sim Exoskeleton Control 2</p>
@@ -674,13 +679,13 @@
 <h3 style="text-align: center;">Sim - Xsens</h3>
 <div class="video-row">
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_xsens1.mp4" type="video/mp4">
     </video>
     <p>Sim Xsens Control 1</p>
   </div>
   <div class="video-box">
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline controls>
       <source src="./statics/videos/sim_xsens2.mp4" type="video/mp4">
     </video>
     <p>Sim Xsens Control 2</p>
@@ -706,7 +711,7 @@
 
 <!-- 视频1 -->
 <div style="text-align: center; margin-bottom: 20px;">
-  <video autoplay loop muted style="width: 60%; max-width: 800px;">
+  <video autoplay muted loop playsinline controls style="width: 60%; max-width: 800px;">
     <source src="./statics/videos/High-Precision1.mp4" type="video/mp4">
     High-Precision Video 1
   </video>
@@ -715,7 +720,7 @@
 
 <!-- 视频2 -->
 <div style="text-align: center; margin-bottom: 20px;">
-  <video autoplay loop muted style="width: 60%; max-width: 800px;">
+  <video autoplay muted loop playsinline controls style="width: 60%; max-width: 800px;">
     <source src="./statics/videos/High-Precision2.mp4" type="video/mp4">
     High-Precision Video 2
   </video>
@@ -724,7 +729,7 @@
 
 <!-- 仿真视频 -->
 <div style="text-align: center; margin-bottom: 20px;">
-  <video autoplay loop muted style="width: 60%; max-width: 800px;">
+  <video autoplay muted loop playsinline controls style="width: 60%; max-width: 800px;">
     <source src="./statics/videos/sim_High-Precision.mp4" type="video/mp4">
     Simulated High-Precision Xsens
   </video>
@@ -749,14 +754,14 @@
 
           <!-- <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 95%; height: 100%;">
                 <source src="./statics/videos/long.mp4" type="video/mp4">
                 Walking under changing upper-body poses.
               </video>
               <p><span style="color: #126BAE;">1. </span>Walking under changing upper-body poses.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 95%; height: 100%;">
                 <source src="./statics/videos/squat.mp4" type="video/mp4">
                 Squatting under changing upper-body poses.
               </video>
@@ -773,81 +778,83 @@
             movement.</p>
         </div> -->
 
-        <div class="content">
-          <h4 class="title is-3 has-text-centered is-size-4-mobile">1.Vision-based</h4>
-          <p>
-            The system first calibrates once in a neutral T‑pose, using SMPL to derive body shape β and link-scale
-            factors s that align human and robot kinematics. During operation, SMPLer-X streams the operator's
-            upper-body pose, which is rescaled by s and solved with PINK IK for arm-and-wrist motion, while MediaPipe
-            key-points refined by Dex-Retargeting drive precise finger control. Decoupling limb and hand estimation
-            yields robust, real-time teleoperation from pure vision input.
-          </p>
-          <h4 class="title is-3 has-text-centered is-size-4-mobile">2.MoCap-based</h4>
-          <p>
-            The inertial-MoCap pipeline uses an Xsens MVN suit (23 IMUs) plus Manus Metagloves. After a one-time
-            calibration, the MVN stream provides the 6-DoF pose of 23 body segments, while each glove outputs 20
-            finger-joint DoFs. Raw limb data are first transformed from the MVN's global frame to the robot frame
-            (pelvis origin, forward +X, vertical +Z).
-            <br>
-            A joint-specific, real-time rescaling module then compensates for
-            human-robot link-length mismatches before Closed-Loop Inverse Kinematics (CLIK) solves the robot's
-            arm-and-wrist poses. For the hands, the glove's MCP, PIP, DIP and ab/adduction angles are mapped
-            directly—subject to the dexterous hand's joint limits—yielding accurate, low-latency replication of both
-            limb and finger motions.
-          </p>
-          <div style="text-align: center;">
-            <img alt="xsens pipeline" src="./statics/images/Xsens_Pipe.png" width="100%" />
+          <div class="content">
+            <h4 class="title is-3 has-text-centered is-size-4-mobile">1.Vision-based</h4>
+            <p>
+              The system first calibrates once in a neutral T‑pose, using SMPL to derive body shape β and link-scale
+              factors s that align human and robot kinematics. During operation, SMPLer-X streams the operator's
+              upper-body pose, which is rescaled by s and solved with PINK IK for arm-and-wrist motion, while MediaPipe
+              key-points refined by Dex-Retargeting drive precise finger control. Decoupling limb and hand estimation
+              yields robust, real-time teleoperation from pure vision input.
+            </p>
+            <h4 class="title is-3 has-text-centered is-size-4-mobile">2.MoCap-based</h4>
+            <p>
+              The inertial-MoCap pipeline uses an Xsens MVN suit (23 IMUs) plus Manus Metagloves. After a one-time
+              calibration, the MVN stream provides the 6-DoF pose of 23 body segments, while each glove outputs 20
+              finger-joint DoFs. Raw limb data are first transformed from the MVN's global frame to the robot frame
+              (pelvis origin, forward +X, vertical +Z).
+              <br>
+              A joint-specific, real-time rescaling module then compensates for
+              human-robot link-length mismatches before Closed-Loop Inverse Kinematics (CLIK) solves the robot's
+              arm-and-wrist poses. For the hands, the glove's MCP, PIP, DIP and ab/adduction angles are mapped
+              directly—subject to the dexterous hand's joint limits—yielding accurate, low-latency replication of both
+              limb and finger motions.
+            </p>
+            <div style="text-align: center;">
+              <img alt="xsens pipeline" src="./statics/images/Xsens_Pipe.png" width="100%" />
+            </div>
+            <h4 class="title is-3 has-text-centered is-size-4-mobile">3.VR-based</h4>
+            <p>The <strong>VR-based teleoperation system</strong> includes two main components:</p>
+
+            <h5>1. Upper-body Limb Motion Control</h5>
+            <p>
+              For upper-body limb motion control, the Apple VisionPro is utilized for hand, wrist, and head tracking,
+              adhering to the OpenXR coordinate system. Wrist and head poses are initially transformed into the robot's
+              coordinate frame. The wrist offset relative to the head is then converted into an offset relative to the
+              pelvis. Only the wrist translation data is fed to an IK algorithm based on Pink, which computes all
+              degrees of freedom except for finger joints.
+            </p>
+            <h5>2. Hand Control</h5>
+            <p>
+              For hand control, to enhance manual dexterity across different teleoperators, the distal phalanx lengths
+              of
+              each operator's fingers are measured and scaled proportionally to match the corresponding robotic finger
+              segments. Subsequently, vector-based optimizers are employed, following the OpenTelevision approach, to
+              generate robot-hand joint commands within the dexterous-retargeting framework of AnyTeleop.
+            </p>
+            <h5 class="title is-3 has-text-centered is-size-4-mobile">4.Exoskeleton-based</h5>
+            <p>
+              This exoskeleton-based teleoperation framework creates isomorphic systems customized to replicate a target
+              humanoid's upper body kinematics, based on HOMIE principles. Servo-driven joints ensure real-time
+              synchronization of operator and robot movements. Integrated motion-sensing gloves with Hall-effect sensors
+              provide 15 DoF per-hand tracking. By directly mapping operator kinematics to the humanoid's joints, this
+              method bypasses inverse kinematics (IK) approximations, thereby eliminating algorithmic errors and
+              enhancing
+              operational bandwidth and positional accuracy.
+            </p>
+            <div class="video-container" style="display: flex;">
+              <div style="flex: 1; text-align: center;">
+                <img alt="exo-g1" src="./statics/images/g1real.png" width="50%" />
+                <p>
+                  <span style="color: #126BAE;">1. </span>Isomorphic Exoskeleton for Unitree G1.
+                </p>
+
+              </div>
+              <div style="flex: 1; text-align: center;">
+                <img alt="exo-gr1" src="./statics/images/gr1real.png" width="50%" />
+                <p><span style="color: #126BAE;">2. </span>Isomorphic Exoskeleton for Fourier GR-1.</p>
+
+              </div>
+              <div style="flex: 1; text-align: center;">
+                <img alt="exo-h1" src="./statics/images/h1real.jpg" width="50%" />
+                <p><span style="color: #126BAE;">3. </span>Isomorphic Exoskeleton for Unitree H1-2.</p>
+              </div>
+            </div>
           </div>
-          <h4 class="title is-3 has-text-centered is-size-4-mobile">3.VR-based</h4>
-          <p>The <strong>VR-based teleoperation system</strong> includes two main components:</p>
 
-          <h5>1. Upper-body Limb Motion Control</h5>
-          <p>
-            For upper-body limb motion control, the Apple VisionPro is utilized for hand, wrist, and head tracking,
-            adhering to the OpenXR coordinate system. Wrist and head poses are initially transformed into the robot's
-            coordinate frame. The wrist offset relative to the head is then converted into an offset relative to the
-            pelvis. Only the wrist translation data is fed to an IK algorithm based on Pink, which computes all
-            degrees of freedom except for finger joints.
-          </p>
-          <h5>2. Hand Control</h5>
-          <p>
-            For hand control, to enhance manual dexterity across different teleoperators, the distal phalanx lengths of
-            each operator's fingers are measured and scaled proportionally to match the corresponding robotic finger
-            segments. Subsequently, vector-based optimizers are employed, following the OpenTelevision approach, to
-            generate robot-hand joint commands within the dexterous-retargeting framework of AnyTeleop.
-          </p>
-          <h5 class="title is-3 has-text-centered is-size-4-mobile">4.Exoskeleton-based</h5>
-          <p>
-            This exoskeleton-based teleoperation framework creates isomorphic systems customized to replicate a target
-            humanoid's upper body kinematics, based on HOMIE principles. Servo-driven joints ensure real-time
-            synchronization of operator and robot movements. Integrated motion-sensing gloves with Hall-effect sensors
-            provide 15 DoF per-hand tracking. By directly mapping operator kinematics to the humanoid's joints, this
-            method bypasses inverse kinematics (IK) approximations, thereby eliminating algorithmic errors and enhancing
-            operational bandwidth and positional accuracy.
-          </p>
-          <div class="video-container" style="display: flex;">
-            <div style="flex: 1; text-align: center;">
-              <img alt="exo-g1" src="./statics/images/g1real.png" width="50%" />
-              <p>
-                <span style="color: #126BAE;">1. </span>Isomorphic Exoskeleton for Unitree G1.
-              </p>
-
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <img alt="exo-gr1" src="./statics/images/gr1real.png" width="50%" />
-              <p><span style="color: #126BAE;">2. </span>Isomorphic Exoskeleton for Fourier GR-1.</p>
-
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <img alt="exo-h1" src="./statics/images/h1real.jpg" width="50%" />
-              <p><span style="color: #126BAE;">3. </span>Isomorphic Exoskeleton for Unitree H1-2.</p>
-            </div>
-          </div>
         </div>
-
       </div>
     </div>
-  </div>
 </section>
 <!-- 闭合 Teleoperation -->
 
@@ -872,14 +879,14 @@
             the real world. </p>
           <!-- <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 90%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 90%; height: 100%;">
                 <source src="./statics/videos/g1sim.mp4" type="video/mp4">
                 Unitree G1 in GRUtopia.
               </video>
               <p><span style="color: #126BAE;">1. </span>Unitree G1 in GRUtopia.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 90%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 90%; height: 100%;">
                 <source src="./statics/videos/gr1sim.mp4" type="video/mp4">
                 Fourier GR-1 in GRUtopia.
               </video>
@@ -890,7 +897,7 @@
           <br>
           <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 95%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 95%; height: 100%;">
                 <source src="./statics/videos/g1tasksim.mp4" type="video/mp4">
                 Loco-Manipulation Task Completion in GRUtopia.
               </video>
@@ -909,14 +916,14 @@
             with collected data.</p>
           <!-- <div class="video-container" style="display: flex;">
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 90%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 90%; height: 100%;">
                 <source src="./statics/videos/imi.mp4" type="video/mp4">
                 Squat Pick.
               </video>
               <p><span style="color: #126BAE;">1. </span>Squat Pick.</p>
             </div>
             <div style="flex: 1; text-align: center;">
-              <video autoplay loop muted style="width: 90%; height: 100%;">
+              <video  autoplay muted loop playsinline controls  style="width: 90%; height: 100%;">
                 <source src="./statics/videos/imi2.mp4" type="video/mp4">
                 Pick & Place.
               </video>
